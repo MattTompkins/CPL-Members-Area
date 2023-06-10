@@ -49,7 +49,7 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="{{ route('events.index') }}" class="block font-semibold text-gray-900 dark:text-gray-100">
                                     {{ __('View events') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
@@ -72,7 +72,7 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="{{ route('events.manage') }}" class="block font-semibold text-gray-900 dark:text-gray-100">
                                     {{ __('Manage events') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
