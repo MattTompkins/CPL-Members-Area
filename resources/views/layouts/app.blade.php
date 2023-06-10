@@ -33,5 +33,17 @@
             </main>
         </div>
         <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
+        <script>
+            const menuOpenButton = document.getElementById('js-navigation-open');
+            const menuCloseButton = document.getElementById('js-navigation-close');
+            const mobileMenu = document.getElementById('js-mobile-menu');
+
+            function toggleHamburgerMenu() {
+                mobileMenu.classList.toggle('hidden');
+            }
+
+            menuOpenButton.addEventListener('click', toggleHamburgerMenu);
+            menuCloseButton.addEventListener('click', toggleHamburgerMenu);
+        </script>
     </body>
 </html>
