@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[aria-current]:is([aria-current="page"]) {
+    border-bottom: 2px solid;
+    border-radius: 0px;
+    padding-bottom: 3px;
+}
