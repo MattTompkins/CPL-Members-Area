@@ -18,12 +18,12 @@ class EventController extends Controller
     }
 
     /**
-     * Display a listing of the resource (Manage events)
+     * Display a list for managing events
      *
      * @return \Illuminate\Http\Response
      */
     public function manageEvents() {
-        //
+        return view('events.manage-events');
     }
 
     /**
@@ -33,7 +33,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.create-edit-events');
     }
 
     /**

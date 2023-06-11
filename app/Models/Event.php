@@ -19,6 +19,7 @@ class Event extends Model
         'location',
         'banner_image',
         'show_on_website',
-        'members_only'
+        'members_only',
+        'managed_by',
     ];
 }

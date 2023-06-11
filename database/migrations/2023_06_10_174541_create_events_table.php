@@ -19,11 +19,13 @@ return new class extends Migration
             $table->string('event_title');
             $table->date('start_date');
             $table->date('end_date')->nullable();
+            $table->string('status')->default('draft');
             $table->longText('description');
             $table->longText('location');
             $table->longText('banner_image')->nullable();
             $table->boolean('show_on_website')->default(FALSE);
             $table->boolean('members_only')->default(FALSE);
+            $table->integer('managed_by')->nullable();
         });
     }
 
