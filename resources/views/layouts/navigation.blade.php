@@ -6,7 +6,9 @@
             </a>
         </div>
         <div class="flex lg:hidden">
-            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-100" id="js-navigation-open">
+            <button type="button"
+                class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-100"
+                id="js-navigation-open">
                 <span class="sr-only">Open main menu</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     aria-hidden="true">
@@ -49,7 +51,8 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="{{ route('events.index') }}" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="{{ route('events.index') }}"
+                                    class="block font-semibold text-gray-900 dark:text-gray-100">
                                     {{ __('View events') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
@@ -72,7 +75,8 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="{{ route('events.manage') }}" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="{{ route('events.manage') }}"
+                                    class="block font-semibold text-gray-900 dark:text-gray-100">
                                     {{ __('Manage events') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
@@ -378,6 +382,71 @@
                                 </a>
                                 <p class="mt-1 text-gray-600 dark:text-gray-200">
                                     {{ __('Submit, view or add maintence requests and reports.') }}</p>
+                            </div>
+                        </div>
+                        {{-- Single dropdown item end --}}
+
+
+                    </div>
+
+                </div>
+            </div>
+            {{-- Dropdown menu end --}}
+
+            {{-- Dropdown menu start --}}
+            <div class="relative">
+                <button type="button"
+                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100"
+                    aria-expanded="false" id="dropdownNavbarLink" data-dropdown-toggle="dropdownMenuMemberManager">
+                    {{ __('Members') }}
+                    <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-900 dark:shadow-2xl hidden"
+                    id="dropdownMenuMemberManager">
+                    <div class="p-4">
+
+                        {{-- Single dropdown item start --}}
+                        <div
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            <div
+                                class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                                  </svg>
+                                  
+                            </div>
+                            <div class="flex-auto">
+                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                    {{ __('Manage member accounds') }}
+                                    <span class="absolute inset-0"></span>
+                                </a>
+                                <p class="mt-1 text-gray-600 dark:text-gray-200">
+                                    {{ __('View a list of different members, and their account information.') }}</p>
+                            </div>
+                        </div>
+                        {{-- Single dropdown item end --}}
+
+                        {{-- Single dropdown item start --}}
+                        <div
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            <div
+                                class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                                  </svg>                                  
+                            </div>
+                            <div class="flex-auto">
+                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                    {{ __('Add a user') }}
+                                    <span class="absolute inset-0"></span>
+                                </a>
+                                <p class="mt-1 text-gray-600 dark:text-gray-200">
+                                    {{ __('Setup a brand new user account.') }}</p>
                             </div>
                         </div>
                         {{-- Single dropdown item end --}}
