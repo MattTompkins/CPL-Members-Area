@@ -97,7 +97,7 @@
                         class="bg-white dark:bg-gray-800 border-t dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th scope="row"
                             class="px-6 py-4 font-large text-gray-900 whitespace-nowrap dark:text-white">
-                            <a href="#" class="flex gap-x-1">
+                            <a href="{{route('events.show', $event->id)}}" class="flex gap-x-1">
                                 {{ $event['event_title'] }}
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />

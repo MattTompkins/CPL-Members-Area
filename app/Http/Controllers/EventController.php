@@ -14,7 +14,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('events.view-events');
+        $events = Event::all();
+        return view('events.view-events')->with('events', $events);
     }
 
     /**
@@ -55,7 +56,8 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+       
+        return view('events.single-event')-> with('event', $event);
     }
 
     /**
