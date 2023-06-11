@@ -421,8 +421,8 @@
                                   
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
-                                    {{ __('Manage member accounds') }}
+                                <a href="{{ route('members.index') }}" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                    {{ __('Manage member accounts') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
                                 <p class="mt-1 text-gray-600 dark:text-gray-200">
@@ -441,7 +441,7 @@
                                   </svg>                                  
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="{{ route('members.create') }}" class="block font-semibold text-gray-900 dark:text-gray-100">
                                     {{ __('Add a user') }}
                                     <span class="absolute inset-0"></span>
                                 </a>

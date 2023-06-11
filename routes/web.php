@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\MemberController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,8 +27,9 @@ Route::middleware('auth')->group(function () {
     // Expenses
 
     // Member management
-    Route::get('/members', [EventController::class, 'index'])->name('events.index');
-
+    Route::get('/members', [MemberController::class, 'index'])->name('members.index');
+    Route::get('/members/create', [MemberController::class, 'create'])->name('members.create');
+    
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
