@@ -18,7 +18,7 @@ class MembersTable extends Component
         return view('livewire.members-table', 
         [
             'users' => User::search($this->search)
-                ->paginate(2)
+                ->paginate(15)
         ]);
     }
 }

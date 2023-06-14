@@ -46,6 +46,7 @@
             menuOpenButton.addEventListener('click', toggleHamburgerMenu);
             menuCloseButton.addEventListener('click', toggleHamburgerMenu);
         </script>
+        @stack('scripts')
         @livewireScripts
     </body>
 </html>
