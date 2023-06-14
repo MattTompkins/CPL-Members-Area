@@ -25,6 +25,7 @@ class MembersTable extends Component
     {
         $member = User::findOrFail($this->delete_id);
         $member->delete();
+        app('toast')->create( "This account has been successfully deleted.", 'success');
     }
 
     public function render()

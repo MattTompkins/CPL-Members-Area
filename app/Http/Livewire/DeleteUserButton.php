@@ -21,6 +21,7 @@ class DeleteUserButton extends Component
     {
         $member = User::findOrFail($this->userId);
         $member->delete();
+        app('toast')->create( "This account has been successfully deleted.", 'success');
         redirect()->route('members.index');
     }
 
