@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
     // Members management
     Route::get('/members', [ManageMembersController::class, 'index'])->name('members.index');
     Route::get('/members/create', [ManageMembersController::class, 'create'])->name('members.create');
+    Route::post('/members/create', [ManageMembersController::class, 'store'])->name('members.store');
     Route::get('/members/show/{id}', [ManageMembersController::class, 'show'])->name('members.show');
     Route::get('/members/edit/{id}', [ManageMembersController::class, 'edit'])->name('members.edit');
 
