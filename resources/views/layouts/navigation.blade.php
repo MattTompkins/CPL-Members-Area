@@ -1,12 +1,12 @@
-<header class="bg-white dark:bg-slate-800 shadow border-b dark:border-gray-700">
+<header class="bg-slate-800 shadow border-b border-gray-700">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="{{ route('dashboard') }}">
-                <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                <x-application-logo class="block h-9 w-auto fill-current text-gray-200" />
             </a>
         </div>
         <div class="flex lg:hidden">
-            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-100" id="js-navigation-open">
+            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100" id="js-navigation-open">
                 <span class="sr-only">Open main menu</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     aria-hidden="true">
@@ -17,104 +17,13 @@
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
             <a href="{{ route('dashboard') }}"
-                class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">Dashboard</a>
+                class="text-sm font-semibold leading-6 text-gray-100">Dashboard</a>
+
 
             {{-- Dropdown menu start --}}
             <div class="relative">
                 <button type="button"
-                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100"
-                    aria-expanded="false" id="dropdownNavbarLink" data-dropdown-toggle="dropdownMenuEvents">
-                    {{ __('Events') }}
-                    <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
-                        aria-hidden="true">
-                        <path fill-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </button>
-                <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-900 dark:shadow-2xl hidden"
-                    id="dropdownMenuEvents">
-                    <div class="p-4">
-
-                        {{-- Single dropdown item start --}}
-                        <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
-                            <div
-                                class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
-                                </svg>
-
-                            </div>
-                            <div class="flex-auto">
-                                <a href="{{ route('events.index') }}" class="block font-semibold text-gray-900 dark:text-gray-100">
-                                    {{ __('View events') }}
-                                    <span class="absolute inset-0"></span>
-                                </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
-                                    {{ __('View and sign up for upcoming events as a list or calendar.') }}</p>
-                            </div>
-                        </div>
-                        {{-- Single dropdown item end --}}
-
-                        {{-- Single dropdown item start --}}
-                        <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
-                            <div
-                                class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
-                                </svg>
-
-                            </div>
-                            <div class="flex-auto">
-                                <a href="{{ route('events.manage') }}" class="block font-semibold text-gray-900 dark:text-gray-100">
-                                    {{ __('Manage events') }}
-                                    <span class="absolute inset-0"></span>
-                                </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
-                                    {{ __('Add, remove and update events.') }}</p>
-                            </div>
-                        </div>
-                        {{-- Single dropdown item end --}}
-
-                        {{-- Single dropdown item start --}}
-                        <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
-                            <div
-                                class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
-                                </svg>
-
-                            </div>
-                            <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
-                                    {{ __('Event signups') }}
-                                    <span class="absolute inset-0"></span>
-                                </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
-                                    {{ __('Manage, approve and decline signups from the website or members area.') }}
-                                </p>
-                            </div>
-                        </div>
-                        {{-- Single dropdown item end --}}
-                    </div>
-
-                </div>
-            </div>
-            {{-- Dropdown menu end --}}
-
-            {{-- Dropdown menu start --}}
-            <div class="relative">
-                <button type="button"
-                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100"
+                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100"
                     aria-expanded="false" id="dropdownNavbarLink" data-dropdown-toggle="dropdownMenuTraining">
                     {{ __('Training') }}
                     <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
@@ -124,13 +33,13 @@
                             clip-rule="evenodd" />
                     </svg>
                 </button>
-                <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-900 dark:shadow-2xl hidden"
+                <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 bg-gray-900 shadow-2xl hidden"
                     id="dropdownMenuTraining">
                     <div class="p-4">
 
                         {{-- Single dropdown item start --}}
                         <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
                             <div
                                 class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -141,11 +50,11 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="#" class="block font-semibold text-gray-100">
                                     {{ __('Upcoming courses') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
+                                <p class="mt-1 text-gray-200">
                                     {{ __('Signup to upcoming training courses and qualifications.') }}</p>
                             </div>
                         </div>
@@ -153,7 +62,7 @@
 
                         {{-- Single dropdown item start --}}
                         <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
                             <div
                                 class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -164,11 +73,11 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="#" class="block font-semibold text-gray-100">
                                     {{ __('Manage training courses') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
+                                <p class="mt-1 text-gray-200">
                                     {{ __('Create, update, or remove upcoming training and qualification opportunities.') }}
                                 </p>
                             </div>
@@ -177,7 +86,7 @@
 
                         {{-- Single dropdown item start --}}
                         <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
                             <div
                                 class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -188,11 +97,11 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="#" class="block font-semibold text-gray-100">
                                     {{ __('Manage member qualifications') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
+                                <p class="mt-1 text-gray-200">
                                     {{ __('Manage the qualifcations and training record of Colwick members.') }}</p>
                             </div>
                         </div>
@@ -200,7 +109,7 @@
 
                         {{-- Single dropdown item start --}}
                         <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
                             <div
                                 class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -211,11 +120,11 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="#" class="block font-semibold text-gray-100">
                                     {{ __('My training record') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
+                                <p class="mt-1 text-gray-200">
                                     {{ __('View and manage our record of your qualifications and training activities.') }}
                                 </p>
                             </div>
@@ -231,7 +140,7 @@
             {{-- Dropdown menu start --}}
             <div class="relative">
                 <button type="button"
-                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100"
+                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100"
                     aria-expanded="false" id="dropdownNavbarLink" data-dropdown-toggle="dropdownMenuExpenses">
                     {{ __('Expenses') }}
                     <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
@@ -241,13 +150,13 @@
                             clip-rule="evenodd" />
                     </svg>
                 </button>
-                <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-900 dark:shadow-2xl hidden"
+                <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 bg-gray-900 shadow-2xl hidden"
                     id="dropdownMenuExpenses">
                     <div class="p-4">
 
                         {{-- Single dropdown item start --}}
                         <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
                             <div
                                 class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -258,11 +167,11 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="#" class="block font-semibold text-gray-100">
                                     {{ __('My expenses') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
+                                <p class="mt-1 text-gray-200">
                                     {{ __('View the status of your various expense requests.') }}</p>
                             </div>
                         </div>
@@ -270,7 +179,7 @@
 
                         {{-- Single dropdown item start --}}
                         <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
                             <div
                                 class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -281,11 +190,11 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="#" class="block font-semibold text-gray-100">
                                     {{ __('Submit expense') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
+                                <p class="mt-1 text-gray-200">
                                     {{ __('Submit an expense or milage claim.') }}</p>
                             </div>
                         </div>
@@ -293,7 +202,7 @@
 
                         {{-- Single dropdown item start --}}
                         <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
                             <div
                                 class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -304,11 +213,11 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="#" class="block font-semibold text-gray-100">
                                     {{ __('Manage expense claims') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
+                                <p class="mt-1 text-gray-200">
                                     {{ __('Manage the expense claims and payments of CPL members.') }}</p>
                             </div>
                         </div>
@@ -323,7 +232,7 @@
             {{-- Dropdown menu start --}}
             <div class="relative">
                 <button type="button"
-                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100"
+                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100"
                     aria-expanded="false" id="dropdownNavbarLink" data-dropdown-toggle="dropdownMenuFleet">
                     {{ __('Fleet & Equipment') }}
                     <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
@@ -333,13 +242,13 @@
                             clip-rule="evenodd" />
                     </svg>
                 </button>
-                <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-900 dark:shadow-2xl hidden"
+                <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 bg-gray-900 shadow-2xl hidden"
                     id="dropdownMenuFleet">
                     <div class="p-4">
 
                         {{-- Single dropdown item start --}}
                         <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
                             <div
                                 class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -349,11 +258,11 @@
                                 </svg>
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="#" class="block font-semibold text-gray-100">
                                     {{ __('Manage fleet & equipment') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
+                                <p class="mt-1 text-gray-200">
                                     {{ __('Add, remove and update eqipment and fleet items.') }}</p>
                             </div>
                         </div>
@@ -361,7 +270,7 @@
 
                         {{-- Single dropdown item start --}}
                         <div
-                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
                             <div
                                 class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -372,11 +281,11 @@
 
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900 dark:text-gray-100">
+                                <a href="#" class="block font-semibold text-gray-100">
                                     {{ __('Maintence') }}
                                     <span class="absolute inset-0"></span>
                                 </a>
-                                <p class="mt-1 text-gray-600 dark:text-gray-200">
+                                <p class="mt-1 text-gray-200">
                                     {{ __('Submit, view or add maintence requests and reports.') }}</p>
                             </div>
                         </div>
@@ -394,7 +303,7 @@
             <x-dropdown align="right" width="48">
                 <x-slot name="trigger">
                     <button
-                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-200 focus:outline-none transition ease-in-out duration-150">
                         <div>{{ Auth::user()->name }}</div>
 
                         <div class="ml-1">
