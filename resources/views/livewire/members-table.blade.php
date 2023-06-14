@@ -1,33 +1,5 @@
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg ">
     <div class="flex items-center justify-between p-4">
-        <div>
-            <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction"
-                class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 hidden md:inline-flex">
-                <span class="sr-only">Action button</span>
-                Role
-                <svg class="w-3 h-3 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </button>
-            <!-- Dropdown menu -->
-            <div id="dropdownAction" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownActionButton">
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Reward</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">Promote</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Activate account</a>
-                    </li>
-                </ul>
-                <div class="py-1">
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Delete User</a>
-                </div>
-            </div>
-        </div>
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -100,10 +72,20 @@
                                     <a href="{{ route('member.profile', ['id' => $user['id']]) }}"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-200">{{ __('User profile') }}</a>
                                 </li>
+                                @if(auth()->user()->can('delete members'))
+                                <li>
+                                    <a href="javascript:void(0)"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                                        wire:click.prevent='deleteConfirmation({{$user['id']}})'>{{ __('Delete user') }}</a> 
+                                </li>
+                                @endif
+                                @if(auth()->user()->can('edit members'))
                                 <li>
                                     <a href="{{ route('members.edit', ['id' => $user['id']]) }}"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-200">{{ __('Edit user') }}</a>
                                 </li>
+                                @endif
+                              
                             </ul>
                         </div>
                     </td>

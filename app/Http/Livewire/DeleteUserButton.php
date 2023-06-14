@@ -4,33 +4,28 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\User;
-use Livewire\WithPagination;
 
-class MembersTable extends Component
+class DeleteUserButton extends Component
 {
-    use WithPagination;
-
-    public $search = '';
-    public $delete_id;
+    public $userId; // Add the userId property
 
     protected $listeners = ['deleteConfirmed' => 'deleteMember'];
 
     public function deleteConfirmation($id)
     {
-        $this->delete_id = $id;
+        $this->userId = $id;
         $this->dispatchBrowserEvent('launch-delete-modal');
     }
 
     public function deleteMember()
     {
-        $member = User::findOrFail($this->delete_id);
+        $member = User::findOrFail($this->userId);
         $member->delete();
+        redirect()->route('members.index');
     }
 
     public function render()
     {
-        return view('livewire.members-table', [
-            'users' => User::search($this->search)->paginate(15)
-        ]);
+        return view('livewire.delete-user-button');
     }
 }
