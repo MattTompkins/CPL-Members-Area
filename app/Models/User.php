@@ -42,4 +42,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+      /**
+     * Method to search for users on ID, name or email
+     * 
+     * @param $search search query string
+     * @return object
+     */
+    public static function search($search) {
+        return empty($search) ? static::query()
+            : static::query()
+            ->where('id', 'like', '%'.$search.'%')
+            ->orWhere('name', 'like', '%'.$search.'%')
+            ->orWhere('email', 'like', '%'.$search.'%');
+    }
 }

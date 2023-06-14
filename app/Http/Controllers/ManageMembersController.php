@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Auth\Access\Gate;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class ManageMembersController extends Controller
 {
@@ -13,7 +16,8 @@ class ManageMembersController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('access members');
+        return view('members.show-members');
     }
 
     /**
@@ -23,7 +27,7 @@ class ManageMembersController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create members');
     }
 
     /**
