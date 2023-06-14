@@ -30,6 +30,7 @@ class ManageMembersController extends Controller
     {
         $this->authorize('create members');
         $roles = Role::all();
+
         return view('members.create-edit-member')->with('roles', $roles);
     }
  /**
@@ -70,9 +71,9 @@ class ManageMembersController extends Controller
         $roles = Role::whereIn('id', $roleIds)->get();
         $user->syncRoles($roles);
 
-        
+        app('toast')->create('New user has been successfully created.', 'success');  
 
-        return route('members.show');
+        return redirect()->route('members.index');
     }
 
 

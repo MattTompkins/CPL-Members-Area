@@ -13,8 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('toast', function ($app) {
+            return new \App\Services\ToastService();
+        });
     }
+   
 
     /**
      * Bootstrap any application services.

@@ -7,3 +7,7 @@
     border-radius: 0px;
     padding-bottom: 3px;
 }
+
+.toast {
+    transition: opacity 0.3s ease-out;
+}
