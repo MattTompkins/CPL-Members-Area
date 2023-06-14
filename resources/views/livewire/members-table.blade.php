@@ -83,7 +83,7 @@
                         </div>
                     </td>
                     <td class="px-6 py-4">
-                        <button id="userDropdown{{ $user['id'] }}" data-dropdown-toggle="dropdown"
+                        <button id="userDropdown{{ $user['id'] }}" data-dropdown-toggle="dropdown{{ $user['id'] }}"
                             class="text-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 p-1 border-b-2 border-red-700 font-bold text-sm text-center inline-flex items-center"
                             type="button">{{ __('Actions') }}
                             <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
@@ -93,7 +93,7 @@
                             </svg>
                         </button>
                         <!-- Dropdown menu -->
-                        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                        <div id="dropdown{{ $user['id'] }}" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                 aria-labelledby="userDropdown{{ $user['id'] }}">
                                 <li>

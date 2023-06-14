@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/members/create', [ManageMembersController::class, 'store'])->name('members.store');
     Route::get('/members/show/{id}', [ManageMembersController::class, 'show'])->name('members.show');
     Route::get('/members/edit/{id}', [ManageMembersController::class, 'edit'])->name('members.edit');
+    Route::post('/members/edit/{id}', [ManageMembersController::class, 'update'])->name('members.update');
 
     // Member profiles - Not yet complete
     Route::get('/profile/{id}')->name('member.profile');
