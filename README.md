@@ -12,6 +12,7 @@ The core of this project is built using Laravel - a php web application framewor
 - [Laravel Livewire](https://laravel-livewire.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Flowbite tailwind library](https://flowbite.com/)
+- [Spatie Laravel-permission](https://spatie.be/docs/laravel-permission/v5/introduction)
 
 ## Installation
 
