@@ -76,18 +76,6 @@ class ManageMembersController extends Controller
         return redirect()->route('members.index');
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
     public function edit($id)
     {
         $this->authorize('edit members');
@@ -142,13 +130,13 @@ class ManageMembersController extends Controller
     
 
     /**
-     * Remove the specified resource from storage.
+     * Display a listing of the users resource, roles and permissions
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function groupsIndex() {
+        $users = User::all();
+        $roles = Role::all();
+        return view('members.member-groups', compact($users, $roles));
     }
 }
