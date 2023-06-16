@@ -59,11 +59,15 @@ class ManageMembersController extends Controller
             'repeat-password.same' => 'The repeat password does not match the password.',
         ]);
 
+        $name = $validated['first-name'] . ' ' . $validated['surname'];
+        $profileImage = 'https://ui-avatars.com/api/?name=' . urlencode($name) . '&background=random';
+
         $user = User::create(
             [
-                'name' => $validated['first-name'] . ' ' . $validated['surname'],
+                'name' => $name,
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
+                'profile_image' => $profileImage,
             ]
         );
 
@@ -135,6 +139,8 @@ class ManageMembersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function groupsIndex() {
+        $this->authorize('access members');
+        
         $users = User::all();
         $roles = Role::all();
         return view('members.member-groups', compact($users, $roles));
