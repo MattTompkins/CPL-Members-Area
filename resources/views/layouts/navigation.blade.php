@@ -5,8 +5,10 @@
                 <x-application-logo class="block h-9 w-auto fill-current text-gray-200" />
             </a>
         </div>
+
         <div class="flex lg:hidden">
-            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100" id="js-navigation-open">
+            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100"
+                id="js-navigation-open">
                 <span class="sr-only">Open main menu</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     aria-hidden="true">
@@ -16,14 +18,10 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="{{ route('dashboard') }}"
-                class="text-sm font-semibold leading-6 text-gray-100">Dashboard</a>
-
 
             {{-- Dropdown menu start --}}
             <div class="relative">
-                <button type="button"
-                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100"
+                <button type="button" class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100"
                     aria-expanded="false" id="dropdownNavbarLink" data-dropdown-toggle="dropdownMenuTraining">
                     {{ __('Training') }}
                     <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
@@ -139,8 +137,7 @@
 
             {{-- Dropdown menu start --}}
             <div class="relative">
-                <button type="button"
-                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100"
+                <button type="button" class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100"
                     aria-expanded="false" id="dropdownNavbarLink" data-dropdown-toggle="dropdownMenuExpenses">
                     {{ __('Expenses') }}
                     <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
@@ -231,8 +228,7 @@
 
             {{-- Dropdown menu start --}}
             <div class="relative">
-                <button type="button"
-                    class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100"
+                <button type="button" class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100"
                     aria-expanded="false" id="dropdownNavbarLink" data-dropdown-toggle="dropdownMenuFleet">
                     {{ __('Fleet & Equipment') }}
                     <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
@@ -297,6 +293,94 @@
                 </div>
             </div>
             {{-- Dropdown menu end --}}
+
+            <div class="relative">
+                <button type="button" class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100"
+                    aria-expanded="false" id="dropdownNavbarLink" data-dropdown-toggle="dropdownMenuMembers">
+                    {{ __('Members') }}
+                    <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 bg-gray-900 shadow-2xl hidden"
+                    id="dropdownMenuMembers">
+                    <div class="p-4">
+
+                        {{-- Single dropdown item start --}}
+                        <div
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
+                            <div
+                                class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                                </svg>
+                            </div>
+                            <div class="flex-auto">
+                                <a href="{{ route('members.create') }}" class="block font-semibold text-gray-100">
+                                    {{ __('Create new member') }}
+                                    <span class="absolute inset-0"></span>
+                                </a>
+                                <p class="mt-1 text-gray-200">
+                                    {{ __('Create a new member and setup their user account.') }}</p>
+                            </div>
+                        </div>
+                        {{-- Single dropdown item end --}}
+
+                        {{-- Single dropdown item start --}}
+                        <div
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
+                            <div
+                                class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                                </svg>
+                            </div>
+                            <div class="flex-auto">
+                                <a href="{{ route('members.groups') }}" class="block font-semibold text-gray-100">
+                                    {{ __('Manage user groups') }}
+                                    <span class="absolute inset-0"></span>
+                                </a>
+                                <p class="mt-1 text-gray-200">
+                                    {{ __('See a list of the users in each group, and their permissions.') }}
+                                </p>
+                            </div>
+                        </div>
+                        {{-- Single dropdown item end --}}
+
+                        {{-- Single dropdown item start --}}
+                        <div
+                            class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-700">
+                            <div
+                                class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                                </svg>
+                            </div>
+                            <div class="flex-auto">
+                                <a href="{{ route('members.index') }}" class="block font-semibold text-gray-100">
+                                    {{ __('View & manage members') }}
+                                    <span class="absolute inset-0"></span>
+                                </a>
+                                <p class="mt-1 text-gray-200">
+                                    {{ __('View all members and manage their accounts.') }}
+                                </p>
+                            </div>
+                        </div>
+                        {{-- Single dropdown item end --}}
+
+                    </div>
+
+                </div>
+            </div>
 
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
