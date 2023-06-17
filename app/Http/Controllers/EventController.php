@@ -6,6 +6,7 @@ use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Services\ToastService;
+use App\Models\User;
 
 class EventController extends Controller
 {
@@ -36,8 +37,10 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('events.create-events');
+    {   
+        $this->authorize('create event');
+        $users = User::all();
+        return view('events.create-events')->with('users', $users);
     }
 
     /**
@@ -48,6 +51,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create event');
         // Validate the form fields
         $validatedData = $request->validate([
             'event-title' => 'required',
@@ -89,9 +93,10 @@ class EventController extends Controller
         }
         
         $event->status = $status;
-        
+
         $event->show_on_website = $request->has('publish_on_website');
         $event->members_only = $request->has('members_only');
+        $event->managed_by = $request->event_manager;
         $event->save();
 
         app('toast')->create('A new event has been sucessfully created.', 'success');

@@ -27,7 +27,7 @@
                                 <div class="sm:col-span-4">
                                     <label for="event-title"
                                         class="block text-baseline font-medium leading-6 text-gray-900">{{ __('Event
-                                        title *') }}</label>
+                                                                                                                                                                                                        title *') }}</label>
                                     <div class="mt-2">
                                         <div
                                             class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-600 sm:max-w-md">
@@ -119,46 +119,78 @@
 
                             <div class="mt-5 space-y-10">
                                 <fieldset>
-                                  <div class="space-y-10">
-                                    <div class="relative flex gap-x-3">
-                                        <div class="flex h-6 items-center">
-                                            <label class="flex items-center cursor-pointer">
-                                                <input type="checkbox" name="save_as_draft" value="1" class="sr-only peer">
-                                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600"></div>
-                                                <div class="flex flex-col">
-                                                    <span class="ml-3 text-sm font-medium text-gray-900">{{ __('Save as draft') }}</span>
-                                                    <span class="ml-3 text-sm text-gray-500">{{ __('Save this event as a draft and publish it later.') }}</span>
-                                                </div>
-                                            </label>
+                                    <div class="space-y-10">
+                                        <div class="relative flex gap-x-3">
+                                            <div class="flex h-6 items-center">
+                                                <label class="flex items-center cursor-pointer">
+                                                    <input type="checkbox" name="save_as_draft" value="1"
+                                                        class="sr-only peer">
+                                                    <div
+                                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600">
+                                                    </div>
+                                                    <div class="flex flex-col">
+                                                        <span
+                                                            class="ml-3 text-sm font-medium text-gray-900">{{ __('Save as draft') }}</span>
+                                                        <span
+                                                            class="ml-3 text-sm text-gray-500">{{ __('Save this event as a draft and publish it later.') }}</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="relative flex gap-x-3">
+                                            <div class="flex h-6 items-center">
+                                                <label class="flex items-center cursor-pointer">
+                                                    <input type="checkbox" name="publish_on_website" value="1"
+                                                        class="sr-only peer">
+                                                    <div
+                                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600">
+                                                    </div>
+                                                    <div class="flex flex-col">
+                                                        <span
+                                                            class="ml-3 text-sm font-medium text-gray-900">{{ __('Publish on the website') }}</span>
+                                                        <span
+                                                            class="ml-3 text-sm text-gray-500">{{ __('Make this event public on the website.') }}</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="relative flex gap-x-3">
+                                            <div class="flex h-6 items-center">
+                                                <label class="flex items-center cursor-pointer">
+                                                    <input type="checkbox" name="members_only" value="1"
+                                                        class="sr-only peer">
+                                                    <div
+                                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600">
+                                                    </div>
+                                                    <div class="flex flex-col">
+                                                        <span
+                                                            class="ml-3 text-sm font-medium text-gray-900">{{ __('Members only') }}</span>
+                                                        <span
+                                                            class="ml-3 text-sm text-gray-500">{{ __('Only members can sign up for this event. Ideal for internal events.') }}</span>
+                                                    </div>
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="relative flex gap-x-3">
-                                        <div class="flex h-6 items-center">
-                                            <label class="flex items-center cursor-pointer">
-                                                <input type="checkbox" name="publish_on_website" value="1" class="sr-only peer">
-                                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600"></div>
-                                                <div class="flex flex-col">
-                                                    <span class="ml-3 text-sm font-medium text-gray-900">{{ __('Publish on the website') }}</span>
-                                                    <span class="ml-3 text-sm text-gray-500">{{ __('Make this event public on the website.') }}</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="relative flex gap-x-3">
-                                        <div class="flex h-6 items-center">
-                                            <label class="flex items-center cursor-pointer">
-                                                <input type="checkbox" name="members_only" value="1" class="sr-only peer">
-                                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600"></div>
-                                                <div class="flex flex-col">
-                                                    <span class="ml-3 text-sm font-medium text-gray-900">{{ __('Members only') }}</span>
-                                                    <span class="ml-3 text-sm text-gray-500">{{ __('Only members can sign up for this event. Ideal for internal events.') }}</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                
+
                                 </fieldset>
+                            </div>
+                            <div class="mt-6 border-t">
+                                <label for="cover-photo"
+                                    class="block text-baseline font-medium leading-6 text-gray-900 mt-4">{{ __('Select an event manager') }}</label>
+                                <p class="mt-1 mb-2 text-sm leading-6 text-gray-600">
+                                    {{ __('Likely the event duty officer, this user will take charge of managing the event. Must be a member of exec role group.') }}
+                                </p>
+
+                                <select name="event_manager" id="search-DO"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5">
+                                    <option value="">Select a manager</option>
+                                    @foreach ($users as $user)
+                                        @if ($user->hasRole('Exec'))
+                                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -177,18 +209,18 @@
     @push('scripts')
         <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
         <script>
-          ClassicEditor
-              .create(document.querySelector('#editor'))
-              .then(editor => {
-                  document.querySelector('form').addEventListener('submit', () => {
-                      editor.updateSourceElement();
-                      editor.destroy();
-                  });
-              })
-              .catch(error => {
-                  console.error(error);
-              });
-      </script>
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .then(editor => {
+                    document.querySelector('form').addEventListener('submit', () => {
+                        editor.updateSourceElement();
+                        editor.destroy();
+                    });
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
         <script>
             function previewImage(event) {
                 const fileInput = event.target;
