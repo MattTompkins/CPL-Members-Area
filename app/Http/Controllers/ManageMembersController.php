@@ -41,6 +41,8 @@ class ManageMembersController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create members');
+
         $validated = $request->validate([
             'first-name' => 'required|string|max:255',
             'surname' => 'required|string|max:255',
