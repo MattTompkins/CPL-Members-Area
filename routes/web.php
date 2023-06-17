@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/events', [EventController::class, 'index'])->name('events.index');
     Route::get('/events/manage', [EventController::class, 'manageEvents'])->name('events.manage');
     Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+    Route::post('/events/create', [EventController::class, 'store'])->name('events.store');
     Route::get('/events/edit/{id}', [EventController::class, 'edit'])->name('events.edit');
     Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
     // TO ADD /signups
