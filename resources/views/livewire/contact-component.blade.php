@@ -37,7 +37,7 @@
                     </label>
                     @if ($editing)
                         <input wire:model="contact.name" type="text" id="name"
-                            class="w-full px-3 py-2 border rounded-md">
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5">
                     @else
                         <p>{{ $contact->name }}</p>
                     @endif
@@ -52,7 +52,7 @@
                     </label>
                     @if ($editing)
                         <input wire:model="contact.organisation" type="text" id="organisation"
-                            class="w-full px-3 py-2 border rounded-md">
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5">
                     @else
                         <p>{{ $contact->organisation }}</p>
                     @endif
@@ -67,7 +67,7 @@
                     </label>
                     @if ($editing)
                         <input wire:model="contact.email" type="email" id="email"
-                            class="w-full px-3 py-2 border rounded-md text-baseline">
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5">
                     @else
                         <p>{{ $contact->email }}</p>
                     @endif
@@ -82,7 +82,7 @@
                     </label>
                     @if ($editing)
                         <input wire:model="contact.phone1" type="text" id="phone1"
-                            class="w-full px-3 py-2 border rounded-md text-baseline">
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5">
                     @else
                         <p>{{ $contact->phone1 }}</p>
                     @endif
@@ -97,7 +97,7 @@
                     </label>
                     @if ($editing)
                         <input wire:model="contact.phone2" type="text" id="phone2"
-                            class="w-full px-3 py-2 border rounded-md text-baseline">
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5">
                     @else
                         <p>{{ $contact->phone2 }}</p>
                     @endif
@@ -112,7 +112,8 @@
                     </label>
                     @if ($editing)
                         <textarea wire:model="contact.notes" id="notes"
-                            class="w-full px-3 py-2 border rounded-md"></textarea>
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5">
+                    </textarea>
                     @else
                         <p>{{ $contact->notes }}</p>
                     @endif
