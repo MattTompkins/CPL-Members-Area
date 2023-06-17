@@ -44,7 +44,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-      /**
+    /**
      * Method to search for users on ID, name or email
      * 
      * @param $search search query string
