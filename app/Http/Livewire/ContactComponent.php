@@ -29,9 +29,9 @@ class ContactComponent extends Component
         return view('livewire.contact-component');
     }
     
-    public function edit()
+    public function toggleEditMode()
     {
-        $this->editing = true;
+        $this->editing = !$this->editing;
     }
     
     public function save()

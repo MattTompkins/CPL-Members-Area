@@ -62,10 +62,6 @@
                             class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                 aria-labelledby="userDropdown{{ $contact['id'] }}">
-                                <li>
-                                    <a href="{{ route('contacts.edit', ['id' => $contact['id']]) }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">{{ __('Edit contact') }}</a>
-                                </li>
                                 @if (auth()->user()->can('delete contacts'))
                                     <li>
                                         <a href="javascript:void(0)"
@@ -73,10 +69,10 @@
                                         wire:click.prevent="deleteConfirmation({{ $contact['id'] }})">{{ __('Delete contact') }}</a>
                                     </li>
                                 @endif
-                                @if (auth()->user()->can('edit contacts'))
+                                @if (auth()->user()->can('show contacts'))
                                     <li>
                                         <a href="{{ route('contacts.show', ['id' => $contact['id']]) }}"
-                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">{{ __('More details') }}</a>
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">{{ __('More details / Edit') }}</a>
                                     </li>
                                 @endif
 
