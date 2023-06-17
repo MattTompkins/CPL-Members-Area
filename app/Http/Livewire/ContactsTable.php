@@ -11,19 +11,23 @@ class ContactsTable extends Component
     public $search = '';
     public $delete_id;
 
-    protected $listeners = ['deleteConfirmed' => 'deleteMember'];
+    protected $listeners = ['deleteConfirmed' => 'deleteContact'];
 
     public function deleteConfirmation($id)
     {
+        $this->dispatchBrowserEvent('log-message', ['message' => 'Hello from Livewire!']);
+
         $this->delete_id = $id;
         $this->dispatchBrowserEvent('launch-delete-modal');
     }
 
-    public function contact()
+    public function deleteContact()
     {
-        $member = Contact::findOrFail($this->delete_id);
-        $member->delete();
-        app('toast')->create( "This contact has been successfully deleted.", 'success');
+        if ($this->delete_id) {
+            $contact = Contact::findOrFail($this->delete_id);
+            $contact->delete();
+            app('toast')->create("This contact has been successfully deleted.", 'success');
+        }
     }
 
 

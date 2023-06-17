@@ -1,6 +1,3 @@
-<div>
-    {{-- Do your work, then step back. --}}
-</div>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg ">
     <div class="flex items-center justify-between p-4">
         <label for="table-search" class="sr-only">{{ __('Search') }}</label>
@@ -72,8 +69,8 @@
                                 @if (auth()->user()->can('delete contacts'))
                                     <li>
                                         <a href="javascript:void(0)"
-                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                                            wire:click.prevent='deleteConfirmation({{ $contact['id'] }})'>{{ __('Delete contact') }}</a>
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                                        wire:click.prevent="deleteConfirmation({{ $contact['id'] }})">{{ __('Delete contact') }}</a>
                                     </li>
                                 @endif
                                 @if (auth()->user()->can('edit contacts'))
