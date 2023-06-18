@@ -17,7 +17,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::orderBy('start_date')->get();
         return view('events.view-events')->with('events', $events);
     }
 
@@ -37,7 +37,7 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         $this->authorize('create event');
         $users = User::all();
         return view('events.create-events')->with('users', $users);
@@ -91,9 +91,8 @@ class EventController extends Controller
         } elseif (strtotime($validatedData['start-date']) <= $currentDate && (!$validatedData['end-date'] || strtotime($validatedData['end-date']) >= $currentDate)) {
             $status = 'ongoing';
         }
-        
-        $event->status = $status;
 
+        $event->status = $status;
         $event->show_on_website = $request->has('publish_on_website');
         $event->members_only = $request->has('members_only');
         $event->managed_by = $request->event_manager;
@@ -110,9 +109,9 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($id)
     {
-
+        $event = Event::find($id);
         return view('events.single-event')->with('event', $event);
     }
 
