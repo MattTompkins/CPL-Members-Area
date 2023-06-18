@@ -29,7 +29,7 @@
                         <li>
                             <div class="flex items-center p-2 rounded hover:bg-gray-100">
                                 <input id="filter-radio-example-1" type="radio" value="" name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                    class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500">
                                 <label for="filter-radio-example-1"
                                     class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Last
                                     day</label>
@@ -39,7 +39,7 @@
                             <div class="flex items-center p-2 rounded hover:bg-gray-100">
                                 <input checked="" id="filter-radio-example-2" type="radio" value=""
                                     name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                    class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500">
                                 <label for="filter-radio-example-2"
                                     class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Last
                                     7 days</label>
@@ -48,7 +48,7 @@
                         <li>
                             <div class="flex items-center p-2 rounded hover:bg-gray-100">
                                 <input id="filter-radio-example-3" type="radio" value="" name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                    class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2">
                                 <label for="filter-radio-example-3"
                                     class="w-full ml-2 text-sm font-medium text-gray-900 rounded ">Last
                                     30 days</label>
@@ -57,7 +57,7 @@
                         <li>
                             <div class="flex items-center p-2 rounded hover:bg-gray-100">
                                 <input id="filter-radio-example-4" type="radio" value="" name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                    class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500">
                                 <label for="filter-radio-example-4"
                                     class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Last
                                     month</label>
@@ -66,7 +66,7 @@
                         <li>
                             <div class="flex items-center p-2 rounded hover:bg-gray-100">
                                 <input id="filter-radio-example-5" type="radio" value="" name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                    class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500">
                                 <label for="filter-radio-example-5"
                                     class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Last
                                     year</label>
@@ -85,9 +85,9 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </div>
-                <input type="text" id="table-search"
-                    class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Search for items">
+                <input wire:model.debounce.300ms="search" type="text" id="table-search"
+                    class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-red-500 focus:border-red-500"
+                    placeholder="Search for events">
             </div>
         </div>
         <table class="w-full text-sm text-left text-gray-500">
@@ -109,7 +109,7 @@
                                 <div class="flex-none rounded-full bg-emerald-500/20 p-1">
                                     <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
                                 </div>
-                                <p class="text-xs leading-5 text-gray-500">{{ $event['start_date'] }} @if($event['end_date']) - {{ $event['end_date'] }} @endif</p>
+                                <p class="text-xs leading-5 text-gray-500">{{ formatDate($event['start_date']) }} @if($event['end_date']) - {{ formatDate($event['end_date']) }} @endif</p>
                             </div>
                         </th>
                         <td class="px-6 py-4 hidden sm:flex sm:flex-col sm:items-end">
@@ -122,7 +122,9 @@
             </tbody>
            
         </table>
-        {{ !! $events->links() }}
+        <div class="my-2 mx-3">
+        {{ $events->links() }}
+        </div>
     </div>
 
 

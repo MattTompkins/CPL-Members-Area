@@ -10,12 +10,14 @@ class EventsManageTable extends Component
 {
     use WithPagination;
 
+    public $search = '';
+    
     public function render()
     {
         return view(
             'livewire.events-manage-table',
             [
-                'events' => Event::simplePaginate(10),
+                'events' => Event::search($this->search)->paginate(15),
             ]
         );
     }
