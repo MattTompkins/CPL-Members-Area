@@ -24,6 +24,39 @@ class Event extends Model
     ];
 
     /**
+     * Get attachments relating to specific event(s)
+     *
+     * @return object
+     */
+    public function attachments()
+    {
+        return $this->hasMany(Attachment::class, 'attached_to_id')->where('attached_to_type', 'event');
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param string $name name of the file
+     * @param string $filePath file path of the file
+     * @param boolean $private whether the file is private or not
+     * @return void
+     */
+    public function attachFile($name, $filePath, $private = false)
+    {
+        $attachment = new Attachment([
+            'name' => $name,
+            'file_path' => $filePath,
+            'private' => $private,
+            'attached_to_type' => 'event',
+            'attached_to_id' => $this->id,
+        ]);
+
+        $attachment->save();
+
+        return $attachment;
+    }
+
+    /**
      * Method to search for users on ID, name or email
      * 
      * @param $search search query string
