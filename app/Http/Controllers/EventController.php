@@ -112,6 +112,11 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
+        if( $event['managed_by'] ) {
+        $manager = User::find($event['managed_by']);
+           $event['managed_by'] = $manager['name'];
+           $event['managed_by_profile_image'] = $manager['profile_image'];
+        }
         return view('events.single-event')->with('event', $event);
     }
 

@@ -32,8 +32,11 @@
                                   <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{!! $event['description'] !!}</dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                  <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Duty officer') }}</dt>
-                                  <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">NAME</dd>
+                                  <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Managed by') }}</dt>
+                                  <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 flex items-center">
+                                    <img class="h-11 w-11 flex-none rounded-full bg-gray-50" src="{{ $event['managed_by_profile_image'] }}" alt="Profile Image">
+                                    <span class="ml-3 text-baseline">{{ $event['managed_by'] }}</span>
+                                </dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                   <dt class="text-sm font-medium leading-6 text-gray-900">Attachments</dt>
