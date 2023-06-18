@@ -6,8 +6,40 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-3 mx-auto flex justify-center md:justify-end">
+            <div class="inline-flex rounded-md shadow-sm" role="group">
+                @if (auth()->user()->can('manage event signups'))
+                <a href="http://cpl.test/events/create"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-red-700 focus:z-10 focus:ring-2 focus:ring-red-700 focus:text-red-700">
+                    <svg aria-hidden="true" class="w-4 h-4 mr-2 fill-current" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    Signups
+                </a>
+                @endif
+                @if (auth()->user()->can('delete event'))
+                    <livewire:delete-event-button :eventID="$event['id']">
+                @endif
+                @if (auth()->user()->can('edit event'))
+                <a href="http://cpl.test/events/create"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md  hover:bg-gray-100 hover:text-red-700 focus:z-10 focus:ring-2 focus:ring-red-700 focus:text-red-700">
+                    <svg aria-hidden="true" class="w-4 h-4 mr-2 fill-current" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    {{ __('Edit event') }}
+                </a>
+                @endif
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <img class="max-h-80 w-full object-cover rounded-t-lg" src="{{ $event['banner_image'] }}"
                 alt="{{ $event['title'] }}">
 
@@ -34,7 +66,8 @@
                                         {{ $event['location'] }}</dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Description') }}</dt>
+                                    <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Description') }}
+                                    </dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                                         {!! $event['description'] !!}</dd>
                                 </div>
@@ -49,7 +82,7 @@
                                 </div>
 
 
-                                <?php  $can_manage_files = Auth::user()->hasPermissionTo('edit event'); ?>
+                                <?php $can_manage_files = Auth::user()->hasPermissionTo('edit event'); ?>
                                 <livewire:file-attachment :can_manage_files="$can_manage_files" :attached_to_type="'event'" :attached_to_id="18" />
                             </dl>
                         </div>
