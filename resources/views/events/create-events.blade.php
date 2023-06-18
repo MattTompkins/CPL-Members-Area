@@ -27,7 +27,7 @@
                                 <div class="sm:col-span-4">
                                     <label for="event-title"
                                         class="block text-baseline font-medium leading-6 text-gray-900">{{ __('Event
-                                                                                                                                                                                                        title *') }}</label>
+                                                                                                                                                                                                                                                title *') }}</label>
                                     <div class="mt-2">
                                         <div
                                             class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-600 sm:max-w-md">
@@ -210,7 +210,35 @@
         <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
         <script>
             ClassicEditor
-                .create(document.querySelector('#editor'))
+                .create(document.querySelector('#editor'), {
+                    toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'mediaEmbed'],
+                    heading: {
+                        options: [{
+                                model: 'paragraph',
+                                title: 'Paragraph',
+                                class: 'ck-heading_paragraph'
+                            },
+                            {
+                                model: 'heading2',
+                                view: 'h2',
+                                title: 'Heading 2',
+                                class: 'ck-heading_heading2'
+                            },
+                            {
+                                model: 'heading3',
+                                view: 'h3',
+                                title: 'Heading 3',
+                                class: 'ck-heading_heading3'
+                            },
+                            {
+                                model: 'heading4',
+                                view: 'h4',
+                                title: 'Heading 4',
+                                class: 'ck-heading_heading4'
+                            }
+                        ]
+                    }
+                })
                 .then(editor => {
                     document.querySelector('form').addEventListener('submit', () => {
                         editor.updateSourceElement();
