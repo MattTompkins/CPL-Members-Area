@@ -4,16 +4,19 @@
 
 Colwick Park Lifeguards are a provider of voluntary Water Safety & Rescue services at open water events and are proudly affiliated to the Royal Life Saving Society. This project is intended to be a members management portal, whereby members manage training, events, calendars, meetings and other key aspects to operations.
 
-## Application framework
+## Application framework and packages
 
-The core of this project is built using Laravel - a php web application framework with expressive, elegant syntax. The front-end makes use of Laravel's blade templating enigine. Aspects of the application tech stack can be found below:
+The core of this project is built using Laravel - a php web application framework with expressive, elegant syntax. The front-end makes use of Laravel's blade templating enigine - paired with TailwindCSS. The project makes heavy use of Livewire for Laravel, allowing development of dynamic components in PHP, without the use of Javascript.
 
+A list of included resources can be found below:
 
 - [Laravel](https://laravel.com/docs/)
 - [Laravel Livewire](https://laravel-livewire.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Flowbite tailwind library](https://flowbite.com/)
 - [Spatie Laravel-permission](https://spatie.be/docs/laravel-permission/v5/introduction)
+- [CK Editor 5](https://ckeditor.com/ckeditor-5/)
+- [SweetAlert](https://sweetalert2.github.io/)
   
 ## Installation
 1. Ensure you have composer and NPM (Node.js) installed
