@@ -8,15 +8,22 @@ Colwick Park Lifeguards are a provider of voluntary Water Safety & Rescue servic
 
 The core of this project is built using Laravel - a php web application framework with expressive, elegant syntax. The front-end makes use of Laravel's blade templating enigine. Aspects of the application tech stack can be found below:
 
+
 - [Laravel](https://laravel.com/docs/)
 - [Laravel Livewire](https://laravel-livewire.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Flowbite tailwind library](https://flowbite.com/)
 - [Spatie Laravel-permission](https://spatie.be/docs/laravel-permission/v5/introduction)
-
+  
 ## Installation
-
-Details to be provided in a future release.
+1. Ensure you have composer and NPM (Node.js) installed
+2. Clone the directory, or download the zip to your desired environment
+3. From the terminal run ```composer install``` command within the application directory
+4. Then run the ```npm install``` command
+5. Publish the vendor files with ```php artisan vendor:publish```
+6. Using the .env.example file, create a .env file in the root with the project URL, database settings and other options
+7. Setup the database tables with ```php artisan migrate```
+8. Seed the database with ```php artisan db:seed```
 
 ## License
 
