@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('event_title');
             $table->date('start_date');
             $table->date('end_date')->nullable();
-            $table->string('status')->default('draft');
+            $table->string('status')->nullable();
             $table->longText('description');
             $table->longText('location');
             $table->longText('banner_image')->nullable();

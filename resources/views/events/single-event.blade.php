@@ -25,7 +25,7 @@
                     <livewire:delete-event-button :eventID="$event['id']">
                 @endif
                 @if (auth()->user()->can('edit event'))
-                <a href="http://cpl.test/events/create"
+                <a href="{{ route('events.edit', ['id' => $event['id']])}}"
                     class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md  hover:bg-gray-100 hover:text-red-700 focus:z-10 focus:ring-2 focus:ring-red-700 focus:text-red-700">
                     <svg aria-hidden="true" class="w-4 h-4 mr-2 fill-current" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">

@@ -82,15 +82,15 @@ class EventController extends Controller
 
         $status = 'upcoming';
         $currentDate = strtotime('today');
-        if ($request->has('save_as_draft')) {
-            $status = 'draft';
-        } elseif ($validatedData['end-date'] && strtotime($validatedData['end-date']) < $currentDate) {
+
+        if ($validatedData['end-date'] && strtotime($validatedData['end-date']) < $currentDate) {
             $status = 'finished';
         } elseif (!$validatedData['end-date'] && strtotime($validatedData['start-date']) < $currentDate) {
             $status = 'finished';
         } elseif (strtotime($validatedData['start-date']) <= $currentDate && (!$validatedData['end-date'] || strtotime($validatedData['end-date']) >= $currentDate)) {
             $status = 'ongoing';
         }
+
 
         $event->status = $status;
         $event->show_on_website = $request->has('publish_on_website');
@@ -112,10 +112,10 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
-        if( $event['managed_by'] ) {
-        $manager = User::find($event['managed_by']);
-           $event['managed_by'] = $manager['name'];
-           $event['managed_by_profile_image'] = $manager['profile_image'];
+        if ($event['managed_by']) {
+            $manager = User::find($event['managed_by']);
+            $event['managed_by'] = $manager['name'];
+            $event['managed_by_profile_image'] = $manager['profile_image'];
         }
         return view('events.single-event')->with('event', $event);
     }
@@ -126,9 +126,12 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit($id)
     {
-        //
+        $this->authorize('edit event');
+        $event = Event::find($id);
+        $users = User::all();
+        return view('events.edit-events', compact('event', 'users'));
     }
 
     /**
@@ -138,9 +141,55 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $this->authorize('edit event');
+        $event = Event::find($id);
 
+        // Validate the form fields
+        $validatedData = $request->validate([
+            'event-title' => 'required',
+            'description' => 'required',
+            'event-location' => 'required',
+            'start-date' => 'required|date',
+            'end-date' => 'nullable|date',
+            'file-upload' => 'nullable|image|max:10240', // Max file size: 10MB
+        ]);
+
+        // Update the Event instance with new properties
+        $event->event_title = $validatedData['event-title'];
+        $event->description = $validatedData['description'];
+        $event->location = $validatedData['event-location'];
+        $event->start_date = $validatedData['start-date'];
+        $event->end_date = $validatedData['end-date'];
+
+        if ($request->hasFile('file-upload')) {
+            // Store the new cover photo
+            $banner_image = $request->file('file-upload');
+            $bannerImagePath = $banner_image->store('banner-photos', 'public');
+            $event->banner_image = config('app.url') . Storage::url($bannerImagePath);
+        }
+
+        $status = 'upcoming';
+        $currentDate = strtotime('today');
+
+        if ($validatedData['end-date'] && strtotime($validatedData['end-date']) < $currentDate) {
+            $status = 'finished';
+        } elseif (!$validatedData['end-date'] && strtotime($validatedData['start-date']) < $currentDate) {
+            $status = 'finished';
+        } elseif (strtotime($validatedData['start-date']) <= $currentDate && (!$validatedData['end-date'] || strtotime($validatedData['end-date']) >= $currentDate)) {
+            $status = 'ongoing';
+        }
+
+        $event->status = $status;
+        $event->show_on_website = $request->has('publish_on_website');
+        $event->members_only = $request->has('members_only');
+        $event->managed_by = $request->event_manager;
+
+        $event->save();
+
+        app('toast')->create('The event has been successfully updated.', 'success');
+
+        return redirect()->route('events.show', $event->id)->with('success', 'Event updated successfully!');
+    }
 }
