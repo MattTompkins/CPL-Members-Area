@@ -15,7 +15,7 @@
                         <div class="flex flex-col p-9 leading-normallex justify-center">
                             <h5 class="mb-1 text-2xl font-bold tracking-tight text-gray-900">{{ $event['event_title'] }}</h5>
                             <p class="mb-2 font-normal text-xs text-gray-700 ">{{ formatDate($event['start_date']) }} @if($event['end_date']) - {{ formatDate($event['end_date']) }} @endif</p>
-                            <p class="mb-3 font-normal text-gray-700 "> {!! strip_tags($event['description']) !!}</p>
+                            <p class="mb-3 font-normal text-gray-700 "> {!! first100Words(strip_tags($event['description'])) !!}</p>
                         </div>
                     </div>
                 </div>

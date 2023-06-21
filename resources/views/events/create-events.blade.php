@@ -98,7 +98,7 @@
                                                 class="relative cursor-pointer rounded-md bg-white font-semibold text-red-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-red-600 focus-within:ring-offset-2 hover:text-red-500">
                                                 <span>Upload a file</span>
                                                 <input id="file-upload" name="file-upload" type="file"
-                                                    class="sr-only" onchange="previewImage(event)">
+                                                    class="sr-only" onchange="previewImage(event)" required="">
                                             </label>
                                         </div>
                                         <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
