@@ -16,12 +16,15 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
-    // Events - Backend
+    // Events
     Route::get('/events', [EventController::class, 'index'])->name('events.index');
     Route::get('/events/manage', [EventController::class, 'manageEvents'])->name('events.manage');
     Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+    Route::post('/events/create', [EventController::class, 'store'])->name('events.store');
     Route::get('/events/edit/{id}', [EventController::class, 'edit'])->name('events.edit');
+    Route::post('/events/edit/{id}', [EventController::class, 'update'])->name('events.update');
     Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+    // TO ADD /signups
 
     // Members management
     Route::get('/members', [ManageMembersController::class, 'index'])->name('members.index');
@@ -34,6 +37,7 @@ Route::middleware('auth')->group(function () {
     // Member profiles - Not yet complete
     Route::get('/profile/{id}')->name('member.profile');
 
+    // Profile - To become account settings
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::put('/profile/image/update', [ProfileController::class, 'updateImage'])->name('profile.image.update');

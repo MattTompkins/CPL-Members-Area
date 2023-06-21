@@ -11,3 +11,26 @@
 .toast {
     transition: opacity 0.3s ease-out;
 }
+
+.ck-content ul {
+    padding-left: 1.5em;
+}
+
+.ck-content ol {
+    padding-left: 1.5em;
+}
+
+.ck-content h2 {
+    font-size: 24px;
+    margin-bottom: 1em;
+}
+
+.ck-content h3 {
+    font-size: 20px;
+    margin-bottom: 0.8em;
+}
+
+.ck-content h4 {
+    font-size: 18px;
+    margin-bottom: 0.6em;
+}
