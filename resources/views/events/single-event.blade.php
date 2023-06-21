@@ -65,12 +65,15 @@
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                                         {{ $event['location'] }}</dd>
                                 </div>
+                                @if ( $event[$event['description']])
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Description') }}
                                     </dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                                         {!! $event['description'] !!}</dd>
                                 </div>
+                                @endif
+                                @if ( $event[$event['managed_by']])
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                     <dt class="text-sm font-medium leading-6 text-gray-900">{{ __('Managed by') }}</dt>
                                     <dd
@@ -80,8 +83,7 @@
                                         <span class="ml-3 text-baseline">{{ $event['managed_by'] }}</span>
                                     </dd>
                                 </div>
-
-
+                                @endif
                                 <?php $can_manage_files = Auth::user()->hasPermissionTo('edit event'); ?>
                                 <livewire:file-attachment :can_manage_files="$can_manage_files" :attached_to_type="'event'" :attached_to_id="18" />
                             </dl>
