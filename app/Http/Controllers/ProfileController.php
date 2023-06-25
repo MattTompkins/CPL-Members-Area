@@ -57,6 +57,16 @@ class ProfileController extends Controller
         return redirect()->back()->withErrors(['photo' => 'Please upload a profile image.']);
     }
 
+
+    /**
+     * Update the user's profile image
+     */
+    public function updateAccountSettings(Request $request)
+    {
+        
+    }
+
+
     /**
      * Delete the user's account.
      */

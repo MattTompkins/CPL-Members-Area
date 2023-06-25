@@ -563,7 +563,7 @@
 
                 <x-slot name="content">
                     <x-dropdown-link :href="route('profile.edit')">
-                        {{ __('My account') }}
+                        {{ __('Account settings') }}
                     </x-dropdown-link>
 
                     <x-dropdown-link :href="route('profile.edit')">
