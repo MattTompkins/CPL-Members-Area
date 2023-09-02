@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
 use App\Models\AccountSetting;
+use App\Models\EmergencyContact;
 
 class ProfileController extends Controller
 {
@@ -20,10 +21,12 @@ class ProfileController extends Controller
     {
         $user = $request->user();
         $accountSettings = AccountSetting::where('user_id', $user->id)->first();
+        $emergencyContact = EmergencyContact::where('user_id', $user->id)->first();
 
         return view('profile.edit', [
-            'user' => $user,
-            'accountSettings' => $accountSettings,
+            'user'             => $user,
+            'accountSettings'  => $accountSettings,
+            'emergencyContact' => $emergencyContact,
         ]);
     }
 
@@ -70,7 +73,7 @@ class ProfileController extends Controller
     {
         $user = $request->user();
         $accountSettings = $user->accountSettings;
-    
+
         // Update the account settings
         $accountSettings->update([
             'show_profile' => $request->has('show_profile') ? $request->boolean('show_profile') : false,
@@ -80,11 +83,30 @@ class ProfileController extends Controller
             'show_my_training' => $request->has('show_my_training') ? $request->boolean('show_my_training') : false,
             'receive_emails' => $request->has('receive_emails') ? $request->boolean('receive_emails') : false,
         ]);
-    
+
         app('toast')->create('Your account settings have been updated.', 'success');
         return redirect()->back()->with('status', 'settings-updated');
     }
-    
+
+    /**
+     * Update / Set the user's emergency contact
+     */
+    public function updateEmergencyContact(Request $request)
+    {
+        $attributes = [
+            'user_id'  => Auth::user()->id,
+            'name'     => $request->contact_name,
+            'relation' => $request->relation,
+            'phone'    => $request->phone,
+        ];
+        
+        $emergencyContact = EmergencyContact::updateOrCreate(
+            ['user_id' => Auth::user()->id],
+            $attributes
+        );
+        
+        return redirect()->back()->with('status', 'settings-updated');
+    }
 
 
     /**
