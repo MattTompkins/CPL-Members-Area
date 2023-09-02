@@ -7,6 +7,7 @@ use Illuminate\Auth\Access\Gate;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use App\Models\AccountSetting;
 
 class ManageMembersController extends Controller
 {
@@ -76,6 +77,11 @@ class ManageMembersController extends Controller
         $roleIds = $request->input('roles', []);
         $roles = Role::whereIn('id', $roleIds)->get();
         $user->syncRoles($roles);
+
+        $accountSetting = new AccountSetting();
+        $accountSetting->user_id = $user->id; 
+        $accountSetting->save();
+
 
         app('toast')->create('New user has been successfully created.', 'success');
 

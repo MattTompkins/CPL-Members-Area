@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\AccountSetting;
 
 class User extends Authenticatable
 {
@@ -43,6 +44,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * User has account settings
+     *
+     * @return void
+     */
+    public function accountSettings()
+    {
+        return $this->hasOne(AccountSetting::class);
+    }
 
     /**
      * Method to search for users on ID, name or email

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Models\AccountSetting;
 
 class RegisteredUserController extends Controller
 {
@@ -44,6 +45,10 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'profile_image' => $profileImage,
         ]);
+
+        $accountSetting = new AccountSetting();
+        $accountSetting->user_id = $user->id; 
+        $accountSetting->save();
 
         event(new Registered($user));
 

@@ -41,6 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::put('/profile/image/update', [ProfileController::class, 'updateImage'])->name('profile.image.update');
+    Route::put('/profile/account-settings/update', [ProfileController::class, 'updateAccountSettings'])->name('profile.account-settings.update');
+    Route::put('/profile/emergency-contact/update', [ProfileController::class, 'updateEmergencyContact'])->name('profile.emergency-contact.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Exec - Contacts
